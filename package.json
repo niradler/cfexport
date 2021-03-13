@@ -1,12 +1,8 @@
 {
   "name": "cfexport",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create configuration file from cloudformation exports.",
   "main": "CFExport.js",
-  "bin": {
-    "cfexport": "cli.js",
-    "cfe": "cli.js"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

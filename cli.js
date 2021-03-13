@@ -10,6 +10,14 @@ yargs(hideBin(process.argv))
     "compile",
     "compile env file",
     (yargs) => {
+      yargs.positional("prefix", {
+        describe: "key prefix",
+        default: "",
+      });
+      yargs.positional("suffix", {
+        describe: "key suffix",
+        default: "",
+      });
       yargs.positional("file", {
         describe: "env file path",
         default: "./.env.template",
@@ -31,10 +39,16 @@ yargs(hideBin(process.argv))
     async (argv) => {
       try {
         if (argv.verbose) console.debug(argv);
+
+        const importParams = {
+          suffix: argv.suffix,
+          prefix: argv.prefix,
+        };
+
         if (argv.format === "json") {
           const env = helpers.readJson(helpers.normalizePath(argv.file));
           const cfExport = new CFExport(env);
-          const compileEnv = await cfExport.import();
+          const compileEnv = await cfExport.import(importParams);
           fs.writeFileSync(
             helpers.normalizePath(argv.output),
             helpers.toJson(compileEnv)
@@ -42,7 +56,7 @@ yargs(hideBin(process.argv))
         } else if (argv.format === ".env") {
           const env = helpers.readEnv(helpers.normalizePath(argv.file));
           const cfExport = new CFExport(env);
-          const compileEnv = await cfExport.import();
+          const compileEnv = await cfExport.import(importParams);
           fs.writeFileSync(
             helpers.normalizePath(argv.output),
             helpers.toEnv(compileEnv)

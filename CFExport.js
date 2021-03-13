@@ -14,7 +14,8 @@ class CFExport {
     this.cf = new AWS.CloudFormation({ region });
   }
 
-  async import() {
+  async import(options) {
+    options = options || { prefix: "", suffix: "" };
     const res = await this.cf.listExports().promise();
     const exportsValues = res.Exports;
     const compiled = {};
@@ -27,7 +28,8 @@ class CFExport {
     for (const key in this.env) {
       if (Object.hasOwnProperty.call(this.env, key)) {
         const value = this.env[key];
-        compiled[key] = envMap[value] ? envMap[value] : "KEY_NOT_FOUND";
+        const valueKey = options.prefix + value + options.suffix;
+        compiled[key] = envMap[valueKey] ? envMap[valueKey] : "KEY_NOT_FOUND";
       }
     }
 
