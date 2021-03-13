@@ -31,5 +31,5 @@ cfexport compile -v --file "./.env.template" --region us-east-1 --output "./.env
 
 ### Constraints
 
-to make the call to aws to get the export you need to have aws credential configure (by env or file, see aws sdk docs for more info)
+to make the call to aws to get the exports you need to have aws credential configure (by env or file, see aws sdk docs for more info)
 make sure you have the access right to do: cloudformation:ListExports on Resource *
