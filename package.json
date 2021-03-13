@@ -1,6 +1,6 @@
 {
   "name": "cfexport",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Create configuration file from cloudformation exports.",
   "main": "CFExport.js",
   "bin": {

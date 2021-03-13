@@ -29,9 +29,14 @@ class CFExport {
       if (Object.hasOwnProperty.call(this.env, key)) {
         const value = this.env[key];
         const valueKey = options.prefix + value + options.suffix;
-        compiled[key] = envMap[valueKey]
-          ? envMap[valueKey]
-          : `${valueKey} - KEY_NOT_FOUND`;
+        const importedValue = envMap[valueKey];
+        if (value.startsWith("!")) {
+          compiled[key] = value;
+        } else if (importedValue) {
+          compiled[key] = envMap[valueKey];
+        } else {
+          compiled[key] = `${valueKey} - KEY_NOT_FOUND`;
+        }
       }
     }
 
