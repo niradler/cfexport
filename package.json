@@ -22,5 +22,14 @@
     "aws-sdk": "^2.863.0",
     "dotenv": "^8.2.0",
     "yargs": "^16.2.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niradler/cfexport.git"
+  },
+  "bugs": {
+    "url": "https://github.com/niradler/cfexport/issues"
+  },
+  "homepage": "https://github.com/niradler/cfexport#readme"
 }
