@@ -1,0 +1,26 @@
+{
+  "name": "cfexport",
+  "version": "1.0.0",
+  "description": "Create configuration file from cloudformation exports.",
+  "main": "CFExport.js",
+  "bin": {
+    "cfexport": "cli.js",
+    "cfe": "cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "cloudformation",
+    "exports",
+    "env"
+  ],
+  "author": "Nir Adler",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.863.0",
+    "dotenv": "^8.2.0",
+    "yargs": "^16.2.0"
+  }
+}
