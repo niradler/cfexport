@@ -10,7 +10,7 @@ with this package you can now create .env file in your client application and im
 
 ```.env
 //.env.template
-REACT_APP_APPLICATION_URL=DEV-APIGATEWAY-URL
+REACT_APP_APPLICATION_URL=DEV-APIGATEWAY-URL // you can use --prefix DEV- and then just put APIGATEWAY-URL
 ```
 
 ```json
